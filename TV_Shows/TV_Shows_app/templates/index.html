@@ -19,17 +19,19 @@
         action="create_show"
         method="POST"
       >
-        {% csrf_token %}
+        {% if messages %}
+        <ul class="messages">
+          {% for message in messages %}
+          <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+            {{ message }}
+          </li>
+          {% endfor %}
+        </ul>
+        {% endif %} {% csrf_token %}
         <h1 class="text-center">Add a New Show</h1>
         <div class="form-group">
           <label for="title"> Title</label>
-          <input
-            type="text"
-            class="form-control"
-            id="title"
-            name="title"
-            required
-          />
+          <input type="text" class="form-control" id="title" name="title" />
         </div>
         <div class="form-group">
           <label for="network">Network</label>
@@ -37,13 +39,7 @@
         </div>
         <div class="form-group">
           <label for="date">Release Date</label>
-          <input
-            type="date"
-            class="form-control"
-            id="date"
-            name="date"
-            required
-          />
+          <input type="date" class="form-control" id="date" name="date" />
         </div>
 
         <div class="form-group">

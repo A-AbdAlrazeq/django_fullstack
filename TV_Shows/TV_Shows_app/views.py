@@ -1,6 +1,6 @@
-from django.shortcuts import render, redirect
-
+from django.shortcuts import render, redirect, HttpResponse
 from .models import Show
+from django.contrib import messages
 
 
 def index(request):
@@ -11,9 +11,16 @@ def index(request):
 
 
 def create_Show(request):
-    newShow = Show.objects.create(title=request.POST['title'], Network=request.POST['network'],
-                                  release_date=request.POST['date'], description=request.POST['desc'])
-    newShow.save()
+
+    errors = Show.objects.create_validator(request.POST)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect('/view_create_show')
+    else:
+        newShow = Show.objects.create(title=request.POST['title'], Network=request.POST['network'],
+                                      release_date=request.POST['date'], description=request.POST['desc'])
+        newShow.save()
     return redirect(f'view_show/{newShow.id}')
 
 
@@ -47,10 +54,17 @@ def view_edit(request, id):
 
 
 def edit_Show(request, id):
-    selected_show = Show.objects.get(id=id)
-    selected_show.title = request.POST['title']
-    selected_show.Network = request.POST['network']
-    selected_show.release_date = request.POST['date']
-    selected_show.description = request.POST['desc']
-    selected_show.save()
+
+    errors = Show.objects.create_validator(request.POST)
+    if len(errors) > 0:
+        for key, value in errors.items():
+            messages.error(request, value)
+        return redirect(f'/view_edit/{id}')
+    else:
+        selected_show = Show.objects.get(id=id)
+        selected_show.title = request.POST['title']
+        selected_show.Network = request.POST['network']
+        selected_show.release_date = request.POST['date']
+        selected_show.description = request.POST['desc']
+        selected_show.save()
     return redirect(f'/view_show/{selected_show.id}')
