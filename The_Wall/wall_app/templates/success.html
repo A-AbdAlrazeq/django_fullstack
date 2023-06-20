@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>The Wall</title>
+  </head>
+  <body>
+    <div class="row border-bottom border-dark mb-2">
+      <h1 class="col-8 p-0 ml-3">Coding Dojo Wall</h1>
+      <h2 class="col p-0">Welcome {{logged_user_info.first_name}}</h2>
+      <a class="btn btn-danger p-2 mr-4 text-center" href="/logout">logout</a>
+    </div>
+    {% if error %}
+    <p>{{error}}</p>
+    {% endif %}
+    <form action="/create_post" method="POST">
+      {% csrf_token %}
+      <div class="form-group p-3 w-50">
+        <label for="textarea">Post a message </label>
+        <textarea
+          class="form-control"
+          id="textarea"
+          name="post"
+          rows="3"
+        ></textarea>
+        <button type="submit" class="btn btn-primary float-right m-3">
+          Post a message
+        </button>
+      </div>
+    </form>
+    <div class="form-group p-5">
+      {% for message in messages%}
+      <h4>
+        {{message.user_id.first_name}} {{message.user_id.last_name}} -
+        {{message.create_at}}
+      </h4>
+      <div class="form-inline">
+        <p class="font-weight-light border border-dark rounded p-1">
+          {{message.message}}
+        </p>
+
+        {%if message.user_id.first_name == logged_user_info.first_name%}
+
+        <form
+          class="form-group p-1"
+          action="/delete_message/{{message.id}}"
+          method="post"
+        >
+          {% csrf_token %}
+          <button type="submit" class="btn btn-danger p-2">Delete</button>
+        </form>
+        {%endif%}
+      </div>
+      <h3>Comments:</h3>
+      {% for comment in comments%} {%if comment.message_id.id == message.id %}
+      <div class="form-group">
+        <h4>
+          {{comment.user_id.first_name}} {{comment.user_id.last_name}} -
+          {{comment.create_at}}
+        </h4>
+        <p>{{comment.comment}}</p>
+      </div>
+      {%endif%} {% endfor %}
+      <div class="form-group p-3 w-50">
+        <form action="/comment/{{message.id}}" method="post">
+          {% csrf_token %}
+          <label for="textarea">Post a comment </label>
+          <textarea class="form-control" id="textarea" name="comment" rows="5">
+          </textarea>
+          <button type="submit" class="btn btn-success float-right m-3">
+            Post a Comment
+          </button>
+        </form>
+      </div>
+      {%endfor%}
+    </div>
+  </body>
+</html>
