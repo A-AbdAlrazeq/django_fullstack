@@ -55,7 +55,7 @@ def view_edit(request, id):
 
 def edit_Show(request, id):
 
-    errors = Show.objects.create_validator(request.POST)
+    errors = Show.objects.update_validator(request.POST)
     if len(errors) > 0:
         for key, value in errors.items():
             messages.error(request, value)
