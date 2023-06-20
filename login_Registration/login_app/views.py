@@ -47,8 +47,8 @@ def login(request):
 
 
 def success(request):
-    # if request.method== "GET":
-    #     return redirect('/')
+    if request.method == "GET":
+        return redirect('/')
     context = {
         'username': request.session['username'],
         'status': request.session['status'],

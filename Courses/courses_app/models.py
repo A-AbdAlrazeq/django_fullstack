@@ -6,8 +6,9 @@ class CourseManager(models.Manager):
         errors = {}
         if len(postData['name']) < 5:
             errors["name"] = "course name should be at least 5 characters"
-        if len(postData['desc']) < 15:
-            errors["desc"] = "  Course description should be at least 15 characters"
+        if len(postData['desc']) < 5:
+            errors["desc"] = "  Course description should be at least 5 characters"
+        return errors
 
     def validator(self, postData):
         errors = {}
