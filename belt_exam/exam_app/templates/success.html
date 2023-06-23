@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Teams</title>
+  </head>
+  <body>
+    <div
+      class="d-flex flex-row justify-content-around border-bottom border-dark p-1"
+    >
+      <h1>Welcome {{logged_user_info.name}}</h1>
+
+      <div class="btn pull-right">
+        <a class="btn btn-danger" href="/logout">logout</a>
+      </div>
+    </div>
+    <h1 class="text-center p-3">All Teams</h1>
+    <table class="table table-striped text-center">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Team Name</th>
+          <th scope="col">Skill Level(1-5)</th>
+          <th scope="col">Players</th>
+          <th scope="col">Game Day</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for team in all_the_teams %}
+        <tr>
+          <td><a href="view_team/{{team.id}}">{{team.name}} </a></td>
+          <td>{{team.skill_level}}</td>
+          <td>{{team.team.count}}/9</td>
+          <td>{{team.game_day}}</td>
+        </tr>
+
+        {% endfor %}
+      </tbody>
+    </table>
+    <div class="text-center">
+      <a href="/view_add" class="btn btn-primary w-50 p-2 m-2"
+        >Create a New Team</a
+      >
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+  ></script>
+</html>

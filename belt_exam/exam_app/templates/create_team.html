@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Create Team</title>
+  </head>
+  <body>
+    <h1 class="text-center p-3">New Team</h1>
+    <h3 class="text-center p-3">
+      <a class="p-3" href="/success">Dashboard </a>
+    </h3>
+    <form action="create_team" method="POST" class="row justify-content-center">
+      {% csrf_token %}
+      <table class="table table-bordered w-50 p-3 m-3 text-center">
+        <tbody>
+          <tr>
+            <th scope="row">Team Name:</th>
+            <td colspan="2">
+              <input type="text" class="form-control" id="name" name="name" />
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">Skill Level(1-5):</th>
+            <td colspan="2">
+              <input
+                type="number"
+                min="1"
+                max="5"
+                class="form-control"
+                id="level"
+                name="level"
+              />
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Game Day:</th>
+            <td colspan="2">
+              <select name="day" class="form-control text-center">
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value=" Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button type="submit" class="btn btn-success form-control">
+                Submit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        {{ message }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </body>
+</html>
