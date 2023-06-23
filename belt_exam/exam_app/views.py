@@ -62,6 +62,8 @@ def success(request):
 
 
 def view_create(request):
+    if 'user_id' not in request.session:
+        return redirect('/')
 
     return render(request, "create_team.html")
 
@@ -82,16 +84,22 @@ def create_team(request):
 
 
 def view_team(request, id):
-    user_id = request.session.get('user_id')
-    context = {
-        'team': Team.objects.get(id=id),
-        'user': User.objects.get(id=user_id)
-    }
+    if 'user_id' not in request.session:
+        return redirect('/')
+    else:
+        user_id = request.session.get('user_id')
+        context = {
+            'team': Team.objects.get(id=id),
+            'user': User.objects.get(id=user_id)
+        }
 
     return render(request, "view_team.html", context)
 
 
 def view_edit(request, id):
+    if 'user_id' not in request.session:
+        return redirect('/')
+
     context = {
         'team': Team.objects.get(id=id)
     }
@@ -100,6 +108,8 @@ def view_edit(request, id):
 
 
 def edit_team(request, id):
+    if 'user_id' not in request.session:
+        return redirect('/')
 
     errors = Team.objects.update_team(request.POST)
     if len(errors) > 0:
