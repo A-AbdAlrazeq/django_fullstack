@@ -13,7 +13,7 @@ A web application with the primary purpose is for the user to know the location 
 # Demo
 
  - # Home Page
-![Screenshot (47)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/530947c6-281d-42f4-be03-4b5db68091cb)
+![Home](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/077455f5-90fd-40b9-808e-1465c693d8c7)
 - # Register
   here user registers to the system with a validation id the data incorrect
 ![Screenshot (49)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/fc3b7ffd-650f-4b02-90f2-4beb0a8319fc)
