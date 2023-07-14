@@ -13,4 +13,12 @@ A web application with the primary purpose is for the user to know the location 
 # Demo
 
  - # Home Page
-![Screenshot (46)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/c07379c6-5644-4562-875d-b4bb8191b209)
+![Screenshot (47)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/530947c6-281d-42f4-be03-4b5db68091cb)
+- # Register
+![Screenshot (49)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/fc3b7ffd-650f-4b02-90f2-4beb0a8319fc)
+- # Login
+![Screenshot (48)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/be35bbe9-5d9f-403a-80a8-4dee485da477)
+- # Admin Page
+ ![Screenshot (50)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/f27c54c9-f607-4e0e-97be-21f5de51ffc6)
+- # User Page
+![Screenshot (51)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/1c62b1dd-5e40-426c-9358-7554572f53d0)
