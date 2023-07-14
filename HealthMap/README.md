@@ -24,5 +24,14 @@ A web application with the primary purpose is for the user to know the location 
   admin can add, edit, delete place
  ![Screenshot (50)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/f27c54c9-f607-4e0e-97be-21f5de51ffc6)
 - # User Page
-  user can view place in all city, the default value is user city, he can add a review and add place he wants in favorite list
+  user can view places in all cities, the default value is user city, he can add a review and add a place he wants in his favorite list
 ![Screenshot (51)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/1c62b1dd-5e40-426c-9358-7554572f53d0)
+
+# Tech Stack
+This project was built using the Django framework, and uses the following technologies:
+Client: HTML, CSS, Javascript, Bootstrap
+Server: Django
+# Tools
+Different tools were used to plan and manage the project, such as:
+Balsamiq: For creating the wireframe
+SQLbranch: for create ERD
