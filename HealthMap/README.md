@@ -42,7 +42,7 @@ A web application with the primary purpose is for the user to know the location 
 
 # Tech Stack
 This project was built using the Django framework, and uses the following technologies:
-- Client: HTML, CSS, Javascript, Bootstrap
+- Client: HTML, CSS, Bootstrap
 - Server: Django
 # Tools
 Different tools were used to plan and manage the project, such as:
