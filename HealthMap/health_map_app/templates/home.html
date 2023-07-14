@@ -10,6 +10,10 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
 
     <title>Home</title>
   </head>
@@ -44,13 +48,10 @@
           <!-- Left links -->
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link" href="#">Dashboard</a>
+              <a class="nav-link" href="/view_register"> Register here</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Team</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Projects</a>
+              <a class="nav-link" href="/view_login"> Login</a>
             </li>
           </ul>
           <!-- Left links -->
@@ -72,8 +73,26 @@
           Welcome to our site,which will provide addresses for hospital and
           pharmacies near you and other in palestine.
         </p>
-        <a class="btn btn-primary" href="/view_register"> Register here</a>
-        <a class="btn btn-success" href="/view_login"> Login</a>
+        <a class="btn btn-primary" href="/view_login"> Let's Start</a>
+      </div>
+    </div>
+
+    <div class="card mx-auto text-center p-3 m-2" style="width: 30rem">
+      <img
+        class="card-img-top p-2"
+        src="{% static '/contact_us.jpg' %}"
+        alt="Card image cap"
+      />
+      <div class="card-body">
+        <h5 class="card-title">Contact Us</h5>
+        <a
+          target="_blank"
+          href="https://www.linkedin.com/in/abd-alrahman-abd-alrazeq/"
+          ><i class="fa fa-linkedin-square fa-lg"></i
+        ></a>
+        <a target="_blank" href="https://github.com/A-AbdAlrazeq"
+          ><i class="fa fa-github-square fa-lg"></i>
+        </a>
       </div>
     </div>
   </body>

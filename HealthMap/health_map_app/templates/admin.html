@@ -3,24 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <title>Teams</title>
+    <title>Admin Page</title>
   </head>
   <body>
-    <div
-      class="d-flex flex-row justify-content-around border-bottom border-dark p-1"
-    >
-      <h1>Welcome Admin {{user.name}}</h1>
-      <h1><a href="/view_create">Create New Place</a></h1>
-      <div class="btn pull-right">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar brand -->
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img
+              src="{% static '/logo.png' %}"
+              height="35"
+              alt="MDB Logo"
+              loading="lazy"
+            />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link"
+                ><strong>Welcome Admin {{logged_user_info.name}}</strong>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/view_create">Create New Place</a>
+            </li>
+          </ul>
+          <!-- Left links -->
+        </div>
         <a class="btn btn-danger" href="/logout">logout</a>
       </div>
-    </div>
+      <!-- Container wrapper -->
+    </nav>
     <h1 class="text-center p-3">All Health Places</h1>
     {% if messages %}
     <ul class="messages">

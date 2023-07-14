@@ -10,6 +10,15 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      .checked {
+        color: orange;
+      }
+    </style>
     <title>view my Favorites</title>
   </head>
   <body>
@@ -48,12 +57,6 @@
             <li class="nav-item">
               <a class="nav-link" href="/user/{{user.city}}">Dashboard</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Team</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Projects</a>
-            </li>
           </ul>
           <!-- Left links -->
         </div>
@@ -70,11 +73,9 @@
       >
         <h5>{{Places.name}}, {{Places.city}}, {{Places.address}}</h5>
         <span>
-          <ul>
-            <li>
-              <a href="/remove_favorite/{{Places.id}}">Un-Favorite</a>
-            </li>
-          </ul>
+          <a href="/remove_favorite/{{Places.id}}"
+            ><span class="fa fa-star checked"></span
+          ></a>
         </span>
       </li>
     </ul>

@@ -8,7 +8,7 @@ class UserManager(models.Manager):
         errors = {}
         if len(postData['name']) < 2 or not postData['name'].isalpha():
             errors["name"] = "Username should be at least 2 chars and contains letters only"
-            email = postData['email']
+        email = postData['email']
         EMAIL_REGEX = re.compile(
             r'^[a-zA-Z0-9.+_-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]+$')
         if not EMAIL_REGEX.match(email):
