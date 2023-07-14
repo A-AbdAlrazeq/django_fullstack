@@ -35,3 +35,6 @@ This project was built using the Django framework, and uses the following techno
 Different tools were used to plan and manage the project, such as:
 - Balsamiq: For creating the wireframe
 - SQLbranch: for create ERD
+  # Logo
+  ![logo](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/b73b9e87-d1d9-4c91-8017-fbb5d77ba5a2)
+
