@@ -24,6 +24,15 @@ A web application with the primary purpose is for the user to know the location 
   admin Page here view all places and can move to create or update pages
 ![admin](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/779c9577-5182-460d-9794-780cdf90a34d)
 
+- # Create Place
+  admin can create a new place with validation on all input
+![create](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/72e3f96f-7376-42c3-ac43-6ea81cc122c8)
+
+- # Update Place
+  admin can update a place with validation on all input
+![update](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/de021884-14ad-42d8-b352-2c4d4356c31e)
+
+
 - # User Page
   user can view places in all cities, the default value is user city, he can add a review and add a place he wants in his favorite list
 ![Screenshot (51)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/1c62b1dd-5e40-426c-9358-7554572f53d0)
