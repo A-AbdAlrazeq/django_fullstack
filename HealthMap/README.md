@@ -32,14 +32,13 @@ A web application with the primary purpose is for the user to know the location 
   admin can update a place with validation on all input
 ![update](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/de021884-14ad-42d8-b352-2c4d4356c31e)
 
-
 - # User Page
   user can view places in all cities, the default value is user city, he can add a review and add a place he wants in his favorite list
 ![user](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/1a98993b-aaa9-4b64-a699-d4508fe6bed7)
+
 - #  Favorite User Page
   user can view All places he added to his favorite list and can remove it from the list
 ![favorites](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/5758af77-3b76-4c55-8448-512923639cbb)
-
 
 # Tech Stack
 This project was built using the Django framework, and uses the following technologies:
