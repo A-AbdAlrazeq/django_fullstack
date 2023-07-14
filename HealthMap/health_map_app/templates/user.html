@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {% load static %}
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <style>
+      .checked {
+        color: orange;
+      }
+    </style>
+    <title>Teams</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar brand -->
+          <a class="navbar-brand mt-2 mt-lg-0" href="/user/{{user.city}}">
+            <img
+              src="{% static '/logo.png' %}"
+              height="35"
+              alt="MDB Logo"
+              loading="lazy"
+            />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link"><strong>Welcome {{user.name}}</strong> </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/user/{{user.city}}">Dashboard</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/my_favorites">my favorite</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Projects</a>
+            </li>
+          </ul>
+          <!-- Left links -->
+        </div>
+        <a class="btn btn-danger" href="/logout">logout</a>
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+
+    <h1 class="text-center p-3">All Health Places</h1>
+    <div class="dropdown show text-center p-2">
+      <a
+        class="btn btn-secondary dropdown-toggle"
+        href="/user/{{user.city}}"
+        role="button"
+        id="dropdownMenuLink"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+        {{city}}
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="/user/Tubas">Tubas</a>
+        <a class="dropdown-item" href="/user/Jenin">Jenin</a>
+        <a class="dropdown-item" href="/user/Ramallah">Ramallah</a>
+        <a class="dropdown-item" href="/user/Nablus">Nablus</a>
+      </div>
+    </div>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        {{ message }}
+      </li>
+    </ul>
+    {% endfor %} {% endif %} {% if this_places %} {% for place in this_places %}
+    <div class="card w-100 p-2">
+      <div class="card-body">
+        <h5 class="card-title">
+          {{place.name}}, {{place.city}}, {{place.address}}
+        </h5>
+        <span class="pull-right">
+          {% for liked_place in place.liked_places.all %}
+          <br />
+          {% if liked_place.id == user.id %}
+          <a href="/remove_favorite/{{place.id}}"
+            ><span class="fa fa-star checked"></span
+          ></a>
+          {% endif %} {% endfor %} {% if user not in place.liked_places.all %}
+          <a href="/add_favorite/{{place.id}}"
+            ><span class="fa fa-star"></span
+          ></a>
+          {% endif %}</span
+        >
+        <p class="card-text"></p>
+        <div class="card w-50">
+          <ul class="list-group list-group-flush">
+            <h3 class="p-1">Review :</h3>
+            {% for comm_place in place.comment.all %}
+            <h1></h1>
+            {% for User_comment in comm_place.User.all %}
+            <li class="list-group-item">
+              <h5 class="card-title">
+                {{User_comment.name}} {{comm_place.created_at}}
+              </h5>
+              <b>{{ comm_place.comment }} </b>
+            </li>
+            {%endfor%} {%endfor%}
+          </ul>
+        </div>
+      </div>
+    </div>
+    <form action="/addComment/{{user.id}}/{{place.id}}" method="post">
+      {% csrf_token %}
+      <div class="form-group p-2 w-50">
+        <label for="comm">Comment:</label>
+        <textarea class="form-control" id="comm" name="comm"></textarea>
+      </div>
+      <div class="form-group my-3">
+        <input type="submit" value="Add" class="btn btn-success m-2" />
+      </div>
+    </form>
+    {% endfor %} {% else %}
+    <h1 class="text-center p-2">No Places available in {{city}}</h1>
+    {% endif %}
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"
+  ></script>
+</html>

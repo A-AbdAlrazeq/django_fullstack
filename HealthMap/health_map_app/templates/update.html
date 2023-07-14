@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Place</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div
+      class="d-flex flex-row justify-content-around border-bottom border-dark p-1"
+    >
+      <h1>Welcome Admin {{user.name}}</h1>
+      <h1><a href="/admin">Home</a></h1>
+      <div class="btn pull-right">
+        <a class="btn btn-danger" href="/logout">logout</a>
+      </div>
+    </div>
+    <h1 class="text-center">Update Place</h1>
+    <form
+      action="/edit/{{this_place.id}}"
+      method="POST"
+      class="row justify-content-center"
+    >
+      {% csrf_token %}
+      <table class="table table-bordered w-50 p-3 m-3 text-center">
+        <tbody>
+          <tr>
+            <th scope="row">Name:</th>
+            <td colspan="2">
+              <input
+                type="text"
+                value="{{this_place.name}}"
+                class="form-control"
+                id="name"
+                name="name"
+              />
+            </td>
+          </tr>
+
+          <tr>
+            <th scope="row">City</th>
+            <td colspan="2">
+              <select name="city" class="form-control text-center">
+                <option selected value="{{this_place.city}}">
+                  {{this_place.city}}
+                </option>
+                <option value="Tubas">Tubas</option>
+                <option value="Nablus">Nablus</option>
+                <option value="Jenin">Jenin</option>
+                <option value="Ramallah">Ramallah</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">Address</th>
+            <td colspan="2">
+              <input
+                type="text"
+                value="{{this_place.address}}"
+                class="form-control"
+                id="address"
+                name="address"
+              />
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <button type="submit" class="btn btn-success form-control">
+                Submit
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+    {% if messages %}
+    <ul class="messages">
+      {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+        {{ message }}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+    <div class="text-center">
+      <a
+        href="#"
+        class="btn btn-danger"
+        data-toggle="modal"
+        data-target="#exampleModalCenter"
+        >Delete</a
+      >
+    </div>
+
+    <div
+      class="modal fade"
+      id="exampleModalCenter"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">
+              {{this_place.name}}
+            </h5>
+          </div>
+          <div class="modal-body">
+            Are you sure to delete ({{this_place.name}})
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              No
+            </button>
+            <a href="/delete/{{this_place.id}}" class="btn btn-danger">Yes</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
