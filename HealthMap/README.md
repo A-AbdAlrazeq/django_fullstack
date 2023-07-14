@@ -35,7 +35,11 @@ A web application with the primary purpose is for the user to know the location 
 
 - # User Page
   user can view places in all cities, the default value is user city, he can add a review and add a place he wants in his favorite list
-![Screenshot (51)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/1c62b1dd-5e40-426c-9358-7554572f53d0)
+![user](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/1a98993b-aaa9-4b64-a699-d4508fe6bed7)
+- #  Favorite User Page
+  user can view All places he added to his favorite list and can remove it from the list
+![favorites](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/5758af77-3b76-4c55-8448-512923639cbb)
+
 
 # Tech Stack
 This project was built using the Django framework, and uses the following technologies:
