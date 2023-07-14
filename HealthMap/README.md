@@ -10,3 +10,7 @@ A web application with the primary purpose is for the user to know the location 
 -	The user can see other users' comments.
 
 
+# Demo
+
+ - # Home Page
+![Screenshot (46)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/c07379c6-5644-4562-875d-b4bb8191b209)
