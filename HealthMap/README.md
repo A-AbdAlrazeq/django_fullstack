@@ -18,11 +18,11 @@ A web application with the primary purpose is for the user to know the location 
   here user registers to the system with a validation id the data incorrect
 ![Screenshot (49)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/fc3b7ffd-650f-4b02-90f2-4beb0a8319fc)
 - # Login
--  here user Login to the system with the validation id the data is incorrect, We distinguish between the user and the admin through DB (0,1)
+   here user Login to the system with the validation id the data is incorrect, We distinguish between the user and the admin through DB (0,1)
 ![Screenshot (48)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/be35bbe9-5d9f-403a-80a8-4dee485da477)
 - # Admin Page
-  admin can add, edit,delete place
+  admin can add, edit, delete place
  ![Screenshot (50)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/f27c54c9-f607-4e0e-97be-21f5de51ffc6)
 - # User Page
-  user can view place in all city,the default value user city,he can add review and add place he want in favorite list
+  user can view place in all city, the default value is user city, he can add a review and add place he wants in favorite list
 ![Screenshot (51)](https://github.com/A-AbdAlrazeq/django_fullstack/assets/107461563/1c62b1dd-5e40-426c-9358-7554572f53d0)
